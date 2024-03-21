@@ -7,6 +7,8 @@ const Feature = @import("std").Target.Cpu.Feature;
 pub fn build(b: *Build) !void {
     const kernel_options = b.addOptions();
 
+    std.debug.print("build: {}\n", .{b});
+
     const obj_path_option = b.option([]const u8, "app-obj", "object file of application");
     if (obj_path_option) |_| {
         kernel_options.addOption(bool, "has_wasm", true);
